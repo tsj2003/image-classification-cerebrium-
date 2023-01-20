@@ -30,8 +30,6 @@ Model is trained on images with specific pre-processing steps, e.g. you need to 
     - subtract mean and divide standard deviation per channel
 
 **Deliverable**
-- test_server.py | codebase to make a call to the model deployed on banana dev
-    - This should accept the path of image and return/print the name of class the image belongs to
 - convert_to_onnx.py | codebase to convert the PyTorch Model to the ONNX model
 - test_onnx.py | codebase to test the converted onnx model on CPU
     - There are two images in this repo, your file should run onnx model on these images and verify if the model outputs correct class id and class name
@@ -42,12 +40,19 @@ Model is trained on images with specific pre-processing steps, e.g. you need to 
     - Onnx Model loading and prediction call
     - Pre-processing of the Image
 - Things needed to deploy the code to banana dev
+- test_server.py | codebase to make a call to the model deployed on banana dev
+    - This should accept the path of image and return/print the name of class the image belongs to
+    - And also accept a flag to run preset custom tests, where you make calls to the banana deployed models using the two images and verify results like you are expected to do in test_onnx.py
+    - also report time one banana dev call takes
 - Github Actions pipeline that can do following:
     - Pre-Deployment Pipeline:
         - Build the docker image
         - Run Onnx converter to see if it works
         - Run tests cases on converted ONNNX model
     - Post-Deployment Pipeline:
+        - cron job scheduled using Github action
+        - basically for health check, calls the test_server.py to run automated tests
+        - run the tests every 24 hours, and report the time taken by the banana dev call
 - Readme File | which has steps to run/use all the deliverables with proper details, such that a person who has no prior information of this repo can understand and run this easily with no blockers.
 - Hint: You need to use Deploy From Github option, and make a fork of their public template.
     - Follow steps mentioned in the banana dev documentation
@@ -73,7 +78,7 @@ Model is trained on images with specific pre-processing steps, e.g. you need to 
     - And then in the end when you are done with changes you merge the new branch using proper protocols in main for banana dev deployment
 
 **Extra Points:**
-- Make pre-processing steps part of Onnx model file, instead of implementing them in the code inside app.py.
+- Make pre-processing steps part of Onnx File [<name_of_model>.onnx file], needs to be done during onnx conversion, instead of implementing them in the code inside app.py.
 - Create Github Actions pipeline such that if Docker Image successfully builds and test cases pass it automatically merges the PR into main.
 
 **Note:**
