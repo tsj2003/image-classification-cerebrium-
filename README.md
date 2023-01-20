@@ -12,6 +12,11 @@ You have to use Gihub for codebase and Gihub Actions to run and develop the pipe
     - But you can use google to search for references
 - Record videos for whole duration of doing the assessment:
     - Make sure you start screen recording before starting the assessment and submit the screen recording link after you are done with the assessment
+        - Make sure to add a a detailed walk through of the codebase you have developed
+            - Sharing implementation details
+            - Sharing how and what tests you have developed
+            - How you are passing image to banana dev and why?
+            - Explaining the documentation you have created
     - Make sure you record your self while doing the assignment, you can do this either using laptop camera or you can use mobile phone to make your video.
     - The two recordings should be easily downloadable, and should require no authentication
 
@@ -46,19 +51,19 @@ Model is trained on images with specific pre-processing steps, e.g. you need to 
     - also report time one banana dev call takes
 - Github Actions pipeline that can do following:
     - Pre-Deployment Pipeline:
+        - Should be run manually through Actions tab on Github
         - Build the docker image
         - Run Onnx converter to see if it works
         - Run tests cases on converted ONNNX model
     - Post-Deployment Pipeline:
-        - cron job scheduled using Github action
+        - should run automatically after 24 hours, cron job scheduled using Github action
         - basically for health check, calls the test_server.py to run automated tests
         - run the tests every 24 hours, and report the time taken by the banana dev call
 - Readme File | which has steps to run/use all the deliverables with proper details, such that a person who has no prior information of this repo can understand and run this easily with no blockers.
 - Hint: You need to use Deploy From Github option, and make a fork of their public template.
     - Follow steps mentioned in the banana dev documentation
 
-
- ### Evaluation Criteria
+**Evaluation Criteria**
  - *Python* best practices
  - Completeness: Did you include all features?
  - Correctness: Does the solution (all deliverables) work in sensible, thought-out ways?
