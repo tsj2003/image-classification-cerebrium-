@@ -27,7 +27,7 @@ You have to use Gihub for the codebase and Gihub Actions to run and develop the 
 - The input to the model is an image of size 224x224, and the output is the array with probabilities for each class.
 - The length of the output array is equal to the number of classes [1000] in the ImageNet dataset.
 
-Model is trained on images with specific pre-processing steps, e.g. you need to do the following pre-processings on the image before passing it to the model:
+Model is trained on images with specific pre-processing steps, e.g. you need to do the following pre-processings on the image before passing it to the model. A function (preprocess_numpy) is implemented in the model class which performs the necessary pre-processing on the image, and at the end of pytorch_model.py you can see how to use the model on an image file to get inference.
 - Convert to RGB format if needed. The model accepts the image in RGB format, not in BGR. Code will never throw errors for this so keep an eye on the library you use to load image.
 - Resize to 224x244 (use bilinear interpolation)
 - Divide by 255
@@ -39,11 +39,11 @@ Model is trained on images with specific pre-processing steps, e.g. you need to 
 - test_onnx.py | codebase to test the converted onnx model on CPU
     - There are two images in this repo, your file should run onnx model on these images and verify if the model outputs the correct class id and class name
         - n01440764_tench belongs to class id 0
-        - n01632777_axolotl belongs to class id 26
+        - n01667114_mud_turtle belongs to class id 35
     - The test should report failure in case the outputs are not correct and the pipeline should report the failed test cases    
 - model.py with the following classes/functionalities, make their separate classes:
     - Onnx Model loading and prediction call
-    - Pre-processing of the Image
+    - Pre-processing of the Image [Sample code provided in pytorch_model.py]
 - Things needed to deploy the code to the banana dev
 - test_server.py | codebase to make a call to the model deployed on the banana dev
     - This should accept the path of the image and return/print the name of the class the image belongs to

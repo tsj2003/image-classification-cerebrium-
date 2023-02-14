@@ -10,8 +10,6 @@ from torchvision import transforms
 
 from PIL import Image
 
-import onnxruntime as ort
-
 
 def conv3x3(
     in_planes: int,
@@ -299,3 +297,26 @@ class Classifier(nn.Module):
 
     def forward(self, x: Tensor) -> Tensor:
         return self._forward_impl(x)
+
+    def preprocess_numpy(self, img):
+        resize = transforms.Resize((224, 224))   #must same as here
+        crop = transforms.CenterCrop((224, 224))
+        to_tensor = transforms.ToTensor()
+        normalize = transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
+        img = resize(img)
+        img = crop(img)
+        img = to_tensor(img)
+        img = normalize(img)
+        return img
+
+
+if __name__ == "__main__":
+    mtailor = Classifier(BasicBlock, [2, 2, 2, 2])
+    mtailor.load_state_dict(torch.load("./resnet18-f37072fd.pth"))
+    mtailor.eval()
+    
+    img = Image.open("./n01667114_mud_turtle.JPEG")
+    inp = mtailor.preprocess_numpy(img).unsqueeze(0) 
+    res = mtailor.forward(inp)
+
+    print(torch.argmax(res))
