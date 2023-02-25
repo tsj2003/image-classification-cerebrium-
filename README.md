@@ -5,20 +5,18 @@ You have to develop a deployment pipeline to deploy Machine Learning Model on Ba
 You have to use Gihub for the codebase and Gihub Actions to run and develop the pipeline.
 
 **Assignment Protocols**
-- You will be given 5 hours at max to complete this assessment
+- You will be given 6 hours at max to complete this assessment
 - You can only use Python as a programming Language
-- Once you start you have to complete this assessment in those 5 hours, it cannot be paused and resumed later
+- Once you start you have to complete this assessment in those 6 hours, it cannot be paused and resumed later
 - You cannot take help from any other person
     - But you can use google to search for references
-- Record videos for the whole duration of the assessment:
-    - Make sure you start screen recording before starting the assessment and submit the screen recording link after you are done with the assessment
-        - Make sure to add a detailed walk-through of the codebase you have developed
-            - Sharing implementation details
-            - Sharing how and what tests you have developed
-            - How you are passing the image to banana dev and why?
-            - Explaining the documentation you have created
-    - Make sure you record yourself while doing the assignment, you can do this either using a laptop camera or you can use a mobile phone to make your video.
-    - The two recordings should be easily downloadable and should require no authentication
+- Record a complete code walkthrough of the work you have done. You can use loom to record the video.
+    - A live demo of each of the features specified in the “Deliverable” section
+    - Code overview of each of those features:
+        - Why did you implement it that way?
+        - Is there any way you would improve it?
+    - Explain what tests you have developed and how
+    - Make sure to submit the screen recording link in the submission after you are done recording
 
 **Model Details:**
 - Model is designed to perform classification on an input Image.
