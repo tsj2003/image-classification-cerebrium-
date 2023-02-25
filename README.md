@@ -11,7 +11,10 @@ You have to use Gihub for the codebase and Gihub Actions to run and develop the 
 - You cannot take help from any other person
     - But you can use google to search for references
 - Record a complete code walkthrough of the work you have done. You can use loom to record the video.
-    - A live demo of each of the features specified in the “Deliverable” section
+    - A live demo of each of the features mentioned below:
+        - Github Action Pipelines
+        - Banana.dev platform deployment page
+        - Other scripts as required in "Deliverable" section below
     - Code overview of each of those features:
         - Why did you implement it that way?
         - Is there any way you would improve it?
