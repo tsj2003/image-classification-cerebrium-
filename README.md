@@ -10,7 +10,7 @@ You have to use Gihub for the codebase and Gihub Actions to run and develop the 
 - Once you start you have to complete this assessment in those 6 hours, it cannot be paused and resumed later
 - You cannot take help from any other person
     - But you can use google to search for references
-- Record a complete code walkthrough of the work you have done. You can use loom to record the video.
+- Record a 5-10 mins of code walkthrough of the work you have done. You can use Loom Platform (https://www.loom.com) to record the video.
     - A live demo of each of the features mentioned below:
         - Github Action Pipelines
         - Banana.dev platform deployment page
@@ -19,7 +19,9 @@ You have to use Gihub for the codebase and Gihub Actions to run and develop the 
         - Why did you implement it that way?
         - Is there any way you would improve it?
     - Explain what tests you have developed and how
+    - Explain what parts of the assessment are completed and what is missing?
     - Make sure to submit the screen recording link in the submission after you are done recording
+    - Please note that the free plan on Loom only allows for videos up to 5 minutes in length. As such, you may need to record two separate 5-minute videos.
 
 **Model Details:**
 - Model is designed to perform classification on an input Image.
