@@ -1,14 +1,13 @@
 **Deploy Classification Neural Network on Serverless GPU platform of Banana Dev**
 
 
-You have to deploy Machine Learning Model on Banana Dev [https://www.banana.dev].
-You have to use Gihub for the codebase.
+You have to deploy a Machine Learning Model on Banana Dev [https://www.banana.dev].
+You have to use GitHub for the codebase.
 
 **Assignment Protocols**
-- We expect it to take ~4 hours, with 15 min for clear loom explanation(s)
-    - But you will be given 5 hours at max to complete this assessment
+- We expect it to take ~4 hours, with an extra 15 min for clear loom explanation(s)
+    - The assessment is timeboxed at 5 hours total in a single block. So please plan accordingly
 - You can only use Python as a programming Language
-- Once you start you have to complete this assessment in those 5 hours, it cannot be paused and resumed later
 - You cannot take help from any other person
     - But you can use google to search for references
 - Record a 5-10 mins of code walkthrough of the work you have done. You can use Loom Platform (https://www.loom.com) to record the video.
