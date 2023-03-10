@@ -12,7 +12,7 @@ You have to use Gihub for the codebase and Gihub Actions to run and develop the 
     - But you can use google to search for references
 - Record a 5-10 mins of code walkthrough of the work you have done. You can use Loom Platform (https://www.loom.com) to record the video.
     - A live demo of each of the features mentioned below:
-        - Github Action Pipelines
+        - Github Action Pipeline
         - Banana.dev platform deployment page
         - Other scripts as required in "Deliverable" section below
     - Code overview of each of those features:
@@ -56,12 +56,6 @@ Model is trained on images with specific pre-processing steps, e.g. you need to 
     - Pre-Deployment Pipeline:
         - Should be run manually through the Actions tab on GitHub
         - Build the docker image
-        - Run the Onnx converter to see if it works
-        - Run tests cases on converted ONNNX model
-    - Post-Deployment Pipeline:
-        - should run automatically after 24 hours, cron job scheduled using Github action
-        - basically for a health check, calls the test_server.py to run automated tests
-        - run the tests every 24 hours, and report the time taken by the banana dev call
 - Readme File | which has steps to run/use all the deliverables with proper details, such that a person who has no prior information about this repo can understand and run this easily with no blockers.
 - Hint: You need to use Deploy From Github option, and make a fork of their public template.
     - Follow the steps mentioned in the banana dev documentation
