@@ -1,18 +1,18 @@
 **Deploy Classification Neural Network on Serverless GPU platform of Banana Dev**
 
 
-You have to develop a deployment pipeline to deploy Machine Learning Model on Banana Dev [https://www.banana.dev].
-You have to use Gihub for the codebase and Gihub Actions to run and develop the pipeline.
+You have to deploy Machine Learning Model on Banana Dev [https://www.banana.dev].
+You have to use Gihub for the codebase.
 
 **Assignment Protocols**
-- You will be given 6 hours at max to complete this assessment
+- We expect it to take ~4 hours, with 15 min for clear loom explanation(s)
+    - But you will be given 5 hours at max to complete this assessment
 - You can only use Python as a programming Language
-- Once you start you have to complete this assessment in those 6 hours, it cannot be paused and resumed later
+- Once you start you have to complete this assessment in those 5 hours, it cannot be paused and resumed later
 - You cannot take help from any other person
     - But you can use google to search for references
 - Record a 5-10 mins of code walkthrough of the work you have done. You can use Loom Platform (https://www.loom.com) to record the video.
     - A live demo of each of the features mentioned below:
-        - Github Action Pipeline
         - Banana.dev platform deployment page
         - Other scripts as required in "Deliverable" section below
     - Code overview of each of those features:
@@ -43,19 +43,15 @@ Model is trained on images with specific pre-processing steps, e.g. you need to 
     - There are two images in this repo, your file should run onnx model on these images and verify if the model outputs the correct class id and class name
         - n01440764_tench belongs to class id 0
         - n01667114_mud_turtle belongs to class id 35
-    - The test should report failure in case the outputs are not correct and the pipeline should report the failed test cases    
+    - The test should report failure in case the outputs are not correct    
 - model.py with the following classes/functionalities, make their separate classes:
     - Onnx Model loading and prediction call
     - Pre-processing of the Image [Sample code provided in pytorch_model.py]
 - Things needed to deploy the code to the banana dev
-- test_server.py | codebase to make a call to the model deployed on the banana dev
+- test_server.py | codebase to make a call to the model deployed on the banana dev (Note: This should test deployment not something on your local machine)
     - This should accept the path of the image and return/print the name of the class the image belongs to
     - And also accept a flag to run preset custom tests, where you make calls to the banana deployed models using the two images and verify results like you are expected to do in test_onnx.py
     - Also report the time one banana dev call takes
-- GitHub Actions pipeline that can do the following:
-    - Pre-Deployment Pipeline:
-        - Should be run manually through the Actions tab on GitHub
-        - Build the docker image
 - Readme File | which has steps to run/use all the deliverables with proper details, such that a person who has no prior information about this repo can understand and run this easily with no blockers.
 - Hint: You need to use Deploy From Github option, and make a fork of their public template.
     - Follow the steps mentioned in the banana dev documentation
@@ -68,12 +64,11 @@ Model is trained on images with specific pre-processing steps, e.g. you need to 
  - Testing: Is the solution adequately tested?
  - Documentation: Is the codebase well-documented and has proper steps to run any of the deliverables?
 
- 
 **Things which are very important and will be considered during evaluation**
 - Your test_server.py should be properly implemented, we will use that to test your final deployment.
 - Don't deploy PyTorch Model, you need to convert the PyTorch Model to ONNX first and use that in the deployment.
 - Code Formatting and Documentation.
-- Proper use of Git and Github Actions.
+- Proper use of Git.
 - Meaningful and good commits, we will monitor commit history.
 - Don't delete the other branch you make all the commits to.
     - Your flow can be you make changes in a new branch made from the main.
@@ -81,7 +76,7 @@ Model is trained on images with specific pre-processing steps, e.g. you need to 
 
 **Extra Points:**
 - Make pre-processing steps part of Onnx File [<name_of_model>.onnx file], which needs to be done during onnx conversion, instead of implementing them in the code inside app.py.
-- Create a GitHub Actions pipeline such that if Docker Image successfully builds and test cases pass it automatically merges the PR into the main.
+- Automated test cases to test the deployment.
 
 **Note:**
 - You would need to enter the debit/credit card details on the banana.dev platform but you will not be charged.
