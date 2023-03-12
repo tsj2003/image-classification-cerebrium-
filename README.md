@@ -31,7 +31,7 @@ You have to use GitHub for the codebase.
 
 Model is trained on images with specific pre-processing steps, e.g. you need to do the following pre-processings on the image before passing it to the model. A function (preprocess_numpy) is implemented in the model class which performs the necessary pre-processing on the image, and at the end of pytorch_model.py you can see how to use the model on an image file to get inference.
 - Convert to RGB format if needed. The model accepts the image in RGB format, not in BGR. Code will never throw errors for this so keep an eye on the library you use to load image.
-- Resize to 224x244 (use bilinear interpolation)
+- Resize to 224x224 (use bilinear interpolation)
 - Divide by 255
 - Normalize using mean values for each channel [RGB][0.485, 0.456, 0.406] and standard deviation values for each channel [RGB] [0.229, 0.224, 0.225]
     - subtract mean and divide standard deviation per channel
