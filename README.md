@@ -69,6 +69,8 @@ Model is trained on images with specific pre-processing steps, e.g. you need to 
 
 **Things which are very important and will be considered during evaluation**
 - Your test_server.py should be properly implemented, we will use that to test your final deployment.
+    - Kindly put API-Key and model api link that needs to be passed to the test_server.py, incase its not added in test_server.py and needs to be passed as arguments.
+    - If test_server.py is not runable without requesting further information from you, your submission will not be evaluated.
 - Don't deploy PyTorch Model, you need to convert the PyTorch Model to ONNX first and use that in the deployment.
 - Code Formatting and Documentation.
 - Proper use of Git.
