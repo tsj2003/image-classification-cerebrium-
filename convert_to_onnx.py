@@ -1,10 +1,34 @@
 import argparse
 import torch
+import torch.nn as nn
+from torchvision import transforms
+from PIL import Image
 from src.model.pytorch_model import PyTorchModel
+
+class PreprocessingModel(nn.Module):
+    def __init__(self, model):
+        super().__init__()
+        self.model = model
+        self.resize = transforms.Resize((224, 224))
+        self.crop = transforms.CenterCrop((224, 224))
+        self.to_tensor = transforms.ToTensor()
+        self.normalize = transforms.Normalize(
+            mean=[0.485, 0.456, 0.406],
+            std=[0.229, 0.224, 0.225]
+        )
+
+    def forward(self, x):
+        # Input is expected to be a PIL Image
+        x = self.resize(x)
+        x = self.crop(x)
+        x = self.to_tensor(x)
+        x = self.normalize(x)
+        x = x.unsqueeze(0)  # Add batch dimension
+        return self.model(x)
 
 def convert_to_onnx(model_path: str, output_path: str, include_preprocessing: bool = True):
     """
-    Convert PyTorch model to ONNX format.
+    Convert PyTorch model to ONNX format with optional preprocessing steps.
     
     Args:
         model_path (str): Path to PyTorch model weights
@@ -16,8 +40,14 @@ def convert_to_onnx(model_path: str, output_path: str, include_preprocessing: bo
     model.load_state_dict(torch.load(model_path, map_location=torch.device('cpu')))
     model.eval()
     
-    # Create dummy input
-    dummy_input = torch.randn(1, 3, 224, 224)
+    if include_preprocessing:
+        # Wrap model with preprocessing
+        model = PreprocessingModel(model)
+        # Create dummy input (PIL Image)
+        dummy_input = Image.new('RGB', (224, 224), color='red')
+    else:
+        # Create dummy input tensor
+        dummy_input = torch.randn(1, 3, 224, 224)
     
     # Export to ONNX
     torch.onnx.export(
@@ -36,6 +66,8 @@ def convert_to_onnx(model_path: str, output_path: str, include_preprocessing: bo
     )
     
     print(f"Model converted and saved to {output_path}")
+    if include_preprocessing:
+        print("Preprocessing steps are included in the ONNX model")
 
 def main():
     parser = argparse.ArgumentParser(description='Convert PyTorch model to ONNX')
