@@ -127,3 +127,73 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ML specific
+*.pth
+*.onnx
+*.h5
+*.hdf5
+*.pt
+*.pkl
+
+# Logs
+*.log
+logs/
+
+# Docker
+.docker/
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Project specific
+model.onnx
+pytorch_model_weights.pth
+*.jpeg
+*.JPEG
+*.jpg
+*.JPG
+*.png
+*.PNG
